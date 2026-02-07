@@ -1,7 +1,7 @@
 import 'package:ecommerce/CustomWidgets/CustomTextField.dart';
 import 'package:ecommerce/core/app_colors.dart';
-import 'package:ecommerce/views/auth/login-viwe.dart';
-import 'package:ecommerce/views/auth/register.dart';
+import 'package:ecommerce/views/auth/ui/login-viwe.dart';
+import 'package:ecommerce/views/auth/ui/register.dart';
 import 'package:flutter/material.dart';
 
 class ResetPass extends StatefulWidget {

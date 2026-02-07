@@ -1,19 +1,21 @@
 import 'package:ecommerce/CustomWidgets/CustomTextField.dart';
 import 'package:ecommerce/core/app_colors.dart';
-import 'package:ecommerce/views/auth/register.dart';
-import 'package:ecommerce/views/auth/ui/reset_password_view.dart';
+import 'package:ecommerce/views/auth/ui/login-viwe.dart';
+import 'package:ecommerce/views/auth/ui/register.dart';
 import 'package:flutter/material.dart';
 
-class LoginViwe extends StatefulWidget {
-  const LoginViwe({super.key});
+class RegisterViwe extends StatefulWidget {
+  const RegisterViwe({super.key});
 
   @override
-  State<LoginViwe> createState() => _LoginState();
+  State<RegisterViwe> createState() => _LoginState();
 }
 
-class _LoginState extends State<LoginViwe> {
+class _LoginState extends State<RegisterViwe> {
   String? _email;
   String? _password;
+  String? _Name;
+  String? _confirmPassword;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -25,12 +27,12 @@ class _LoginState extends State<LoginViwe> {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 180),
+                SizedBox(height: 150),
                 Text(
                   "Welcome to our market",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 90),
+                SizedBox(height: 60),
                 Card(
                   color: AppColors.kWhiteColor,
                   shape: RoundedRectangleBorder(
@@ -39,6 +41,20 @@ class _LoginState extends State<LoginViwe> {
                     key: _formKey,
                     child: Column(
                       children: [
+                        SizedBox(height: 25),
+                        CustomTextField(
+                          hintText: 'Name',
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'please enter your Name';
+                            }
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              _Name = value;
+                            });
+                          },
+                        ),
                         SizedBox(height: 25),
                         CustomTextField(
                           hintText: 'Email',
@@ -63,12 +79,32 @@ class _LoginState extends State<LoginViwe> {
                         CustomTextField(
                           hintText: 'password',
                           SuuffIcon: IconButton(
-                              onPressed: () {}, icon: Icon(Icons.visibility_off)),
+                              onPressed: () {},
+                              icon: Icon(Icons.visibility_off)),
                           obscureText: true,
                           onChanged: (value) {
                             setState(() {
                               _password = value;
                             });
+                          },
+                        ),
+                        SizedBox(height: 25),
+                        CustomTextField(
+                          hintText: 'Confirm Password',
+                          obscureText: true,
+                          onChanged: (value) {
+                            setState(() {
+                              _confirmPassword = value;
+                            });
+                          },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please confirm your password';
+                            }
+                            if (value != _password) {
+                              return 'Passwords do not match';
+                            }
+                            return null;
                           },
                         ),
                         SizedBox(height: 25),
@@ -86,51 +122,31 @@ class _LoginState extends State<LoginViwe> {
                               ),
                               onPressed: () {},
                               child: Text(
-                                "Login",
-                                style: TextStyle(color: Colors.white, fontSize: 22),
+                                "Sing Up",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22),
                               ),
                             ),
                           ),
                         ),
                         SizedBox(height: 20),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-
-                            children: [
-                              GestureDetector(onTap: (){
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => ResetPass()),
-                                );
-                              },
-                                child: Text(
-                                  "Forget Password?",
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(height:15 ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("don't have account?"),
+                            Text("Already have account"),
                             TextButton(
                               onPressed: () {
                                 Navigator.pushReplacement(
                                   context,
-                                  MaterialPageRoute(builder: (context) => RegisterViwe()),
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginViwe()),
                                 );
                               },
                               child: Text(
-                                "Sing in",
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue),
+                                "Login",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue),
                               ),
                             ),
                           ],
@@ -143,7 +159,7 @@ class _LoginState extends State<LoginViwe> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              side:BorderSide(color: Colors.white),
+                              side: BorderSide(color: Colors.white),
                             ),
                             onPressed: () {
                               print("Google Sign-in clicked");
@@ -152,11 +168,12 @@ class _LoginState extends State<LoginViwe> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.network(
-                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png',                                height: 24,
+                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png',
+                                  height: 24,
                                 ),
                                 const SizedBox(width: 12),
                                 const Text(
-                                  "Sign in with Google",
+                                  "Sign Up with Google",
                                   style: TextStyle(
                                     color: Colors.black87,
                                     fontSize: 18,
