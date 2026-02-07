@@ -1,6 +1,7 @@
 import 'package:ecommerce/CustomWidgets/CustomTextField.dart';
 import 'package:ecommerce/core/app_colors.dart';
 import 'package:ecommerce/views/auth/register.dart';
+import 'package:ecommerce/views/auth/ui/reset_password_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginViwe extends StatefulWidget {
@@ -98,12 +99,19 @@ class _LoginState extends State<LoginViwe> {
                             mainAxisAlignment: MainAxisAlignment.center,
 
                             children: [
-                              Text(
-                                "Forget Password?",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                              GestureDetector(onTap: (){
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ResetPass()),
+                                );
+                              },
+                                child: Text(
+                                  "Forget Password?",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               )
                             ],
                           ),
