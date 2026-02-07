@@ -134,7 +134,7 @@ class _LoginState extends State<Login> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            side:BorderSide(color: Colors.white), // إطار خفيف
+                            side:BorderSide(color: Colors.white), 
                           ),
                           onPressed: () {
                             print("Google Sign-in clicked");
@@ -142,8 +142,6 @@ class _LoginState extends State<Login> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // هنا بنحط لوجو جوجل (يفضل يكون عندك الصورة في الـ assets)
-                              // لو مفيش صورة حالياً، ممكن نستخدم أيقونة مؤقتة
                               Image.network(
                                 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png',                                height: 24,
                               ),
