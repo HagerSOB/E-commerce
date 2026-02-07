@@ -3,14 +3,14 @@ import 'package:ecommerce/core/app_colors.dart';
 import 'package:ecommerce/views/auth/register.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginViwe extends StatefulWidget {
+  const LoginViwe({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginViwe> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<LoginViwe> {
   String? _email;
   String? _password;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -18,151 +18,153 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 180),
-              Text(
-                "Welcome to our market",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 90),
-              Card(
-                color: AppColors.kWhiteColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      SizedBox(height: 25),
-                      CustomTextField(
-                        hintText: 'Email',
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'please enter your email';
-                          }
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 180),
+                Text(
+                  "Welcome to our market",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 90),
+                Card(
+                  color: AppColors.kWhiteColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 25),
+                        CustomTextField(
+                          hintText: 'Email',
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'please enter your email';
+                            }
 
-                          if (!value.contains('@')) {
-                            return ' missing @';
-                          }
+                            if (!value.contains('@')) {
+                              return ' missing @';
+                            }
 
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            _email = value;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 25),
-                      CustomTextField(
-                        hintText: 'password',
-                        SuuffIcon: IconButton(
-                            onPressed: () {}, icon: Icon(Icons.visibility_off)),
-                        obscureText: true,
-                        onChanged: (value) {
-                          setState(() {
-                            _password = value;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 25),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Container(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.kPrimaryColor,
-                              padding: EdgeInsets.symmetric(vertical: 15.0),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Login",
-                              style: TextStyle(color: Colors.white, fontSize: 22),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-
-                          children: [
-                            Text(
-                              "Forget Password?",
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(height:15 ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("don't have account"),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => RegisterViwe()),
-                              );
-                            },
-                            child: Text(
-                              "Register",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            side:BorderSide(color: Colors.white), 
-                          ),
-                          onPressed: () {
-                            print("Google Sign-in clicked");
+                            return null;
                           },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.network(
-                                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png',                                height: 24,
-                              ),
-                              const SizedBox(width: 12),
-                              const Text(
-                                "Sign in with Google",
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
+                          onChanged: (value) {
+                            setState(() {
+                              _email = value;
+                            });
+                          },
+                        ),
+                        SizedBox(height: 25),
+                        CustomTextField(
+                          hintText: 'password',
+                          SuuffIcon: IconButton(
+                              onPressed: () {}, icon: Icon(Icons.visibility_off)),
+                          obscureText: true,
+                          onChanged: (value) {
+                            setState(() {
+                              _password = value;
+                            });
+                          },
+                        ),
+                        SizedBox(height: 25),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.kPrimaryColor,
+                                padding: EdgeInsets.symmetric(vertical: 15.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
                               ),
+                              onPressed: () {},
+                              child: Text(
+                                "Login",
+                                style: TextStyle(color: Colors.white, fontSize: 22),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+
+                            children: [
+                              Text(
+                                "Forget Password?",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              )
                             ],
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height:15 ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("don't have account?"),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => RegisterViwe()),
+                                );
+                              },
+                              child: Text(
+                                "Sing in",
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              side:BorderSide(color: Colors.white),
+                            ),
+                            onPressed: () {
+                              print("Google Sign-in clicked");
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.network(
+                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png',                                height: 24,
+                                ),
+                                const SizedBox(width: 12),
+                                const Text(
+                                  "Sign in with Google",
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

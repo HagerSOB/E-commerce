@@ -6,13 +6,14 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Widget ? SuuffIcon;
+  final String ? name;
   final Function(String) onChanged;
   final String? Function(String?)? validator;
   const CustomTextField({
     super.key,
     required this.hintText,
     this.obscureText = false,
-    required this.onChanged, this.validator, this.SuuffIcon,
+    required this.onChanged, this.validator, this.SuuffIcon, this.name,
   });
 
   @override
