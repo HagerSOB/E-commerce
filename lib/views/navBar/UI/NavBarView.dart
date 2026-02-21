@@ -18,6 +18,7 @@ class Mainhomeview extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 12),
           child: GNav(
+            selectedIndex: 3,
               rippleColor: Colors.grey[800]!, // tab button ripple color when pressed
               hoverColor: Colors.grey[700]!, // tab button hover color
               tabBorderRadius: 15,
