@@ -27,12 +27,12 @@ class _LoginState extends State<RegisterViwe> {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 150),
+                SizedBox(height: 70),
                 Text(
                   "Welcome to our market",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 40),
                 Card(
                   color: AppColors.kWhiteColor,
                   shape: RoundedRectangleBorder(

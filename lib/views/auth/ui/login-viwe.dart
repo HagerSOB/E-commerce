@@ -2,6 +2,7 @@ import 'package:ecommerce/CustomWidgets/CustomTextField.dart';
 import 'package:ecommerce/core/app_colors.dart';
 import 'package:ecommerce/views/auth/ui/register.dart';
 import 'package:ecommerce/views/auth/ui/reset_password_view.dart';
+import 'package:ecommerce/views/navBar/UI/mainHomeView.dart';
 import 'package:flutter/material.dart';
 
 class LoginViwe extends StatefulWidget {
@@ -25,12 +26,12 @@ class _LoginState extends State<LoginViwe> {
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 180),
+                SizedBox(height: 100),
                 Text(
                   "Welcome to our market",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 90),
+                SizedBox(height: 70),
                 Card(
                   color: AppColors.kWhiteColor,
                   shape: RoundedRectangleBorder(
@@ -146,6 +147,7 @@ class _LoginState extends State<LoginViwe> {
                               side:BorderSide(color: Colors.white),
                             ),
                             onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Mainhomeview()));
                               print("Google Sign-in clicked");
                             },
                             child: Row(
